@@ -14,7 +14,6 @@
     - [Imutabilidade](#imutabilidade)
     - [Pattern Matching](#patternmatching)
     - [Pipe Operator](#pipeoperator)
-    - [Enum e Stream](#enumestream)
   - [Phoenix](#phoenix)
 
 <!-- /TOC -->
@@ -45,7 +44,7 @@ Elixir é uma linguagem funcional que roda em cima da máquina virtual da Erlang
 
 Atoms são como strings constantes
 
-```
+```elixir
 :elixir
 :ok
 :error
@@ -67,7 +66,7 @@ false
 
 São listas encadeadas (Linked lists)
 
-```
+```elixir
 iex(1)> [1, 2, 3.5, "string"]
 [1, 2, 3.5, "string"]
 
@@ -105,7 +104,7 @@ iex(3)>
 
 São como listas, porém são armazenadas continuamente na memória, podendo ter seus elementos acessados separadamente. São mais utilizadas para retornos de funções.
 
-```
+```elixir
 iex(1)> {1, 2, 3}
 {1, 2, 3}
 
@@ -131,7 +130,7 @@ iex(5)> put_elem(x, 5, "test")
 
 # Maps
 
-```
+```elixir
 iex(3)> %{a: 1, b: 2, c: 3}
 %{a: 1, b: 2, c: 3}
 
@@ -182,7 +181,7 @@ iex(15)> %{x |d: 6, f: 610}
 
 Imutabilidade é uma maneira de ter certeza de que o valor de uma variável nunca será alterado de maneira implícita. Uma função nunca pode alterar o valor de uma variável utilizada como parâmetro.
 
-```
+```elixir
 iex(1)> x = "Eu sou IMUTÁVEL"
 "Eu sou IMUTÁVEL"
 
@@ -201,15 +200,16 @@ iex(5)> x
 
 # Pattern Matching
 
-```
-x = 4 
+```elixir
+x = 4
 4
 ```
 
 A situação acima não é apenas uma atribuição, mas sim uma operação de match. Quanto x deve valer para que a operação x = 4 seja verdade? X deve ser 4 e por isso esse valor é atribuído a x.
 
 **Uma atribuição só pode acontecer no lado esquerdo da expressão**
-```
+
+```elixir
 iex(1)> x = 4
 4
 
@@ -231,7 +231,7 @@ iex(5)> 5 = x
 
 Com listas:
 
-```
+```elixir
 iex(1)> [a, b, c] = [1, 2, 3]
 [1, 2, 3]
 
@@ -256,7 +256,7 @@ iex(7)> tail
 
 Com maps:
 
-```
+```elixir
 iex(1)> %{c: valor} = %{a: 1, b: 2, c: 3, d: 4}
 %{a: 1, b: 2, c: 3, d: 4}
 
@@ -275,7 +275,7 @@ iex(5)> valor_a
 
 Com tuplas:
 
-```
+```elixir
 iex(7)> {:ok, result} = {:ok, 13}
 {:ok, 13}
 
@@ -285,7 +285,7 @@ iex(8)> result
 
 Pin operator (não permite reatribuição de valor):
 
-```
+```elixir
 iex(10)> x = 4
 4
 
@@ -298,14 +298,14 @@ iex(12)> ^x = 5
 
 Com funções anônimas:
 
-```
+```elixir
 iex(13)> multiply = fn a, b -> a * b end
 #Function<43.79398840/2 in :erl_eval.expr/5>
 
 iex(14)> multiply.(2,3)
 6
 
-iex(15)> read_file = fn 
+iex(15)> read_file = fn
 ...(15)> {:ok, result} -> "Success #{result}"
 ...(15)> {:error, reason} -> "Error #{reason}"
 ...(15)> end
@@ -317,3 +317,31 @@ iex(16)> read_file.(File.read("test.txt"))
 iex(17)> read_file.(File.read("eunaoexisto.txt"))
 "Error enoent"
 ```
+
+# Pipe Operator
+
+Maneira simplificada de realizar operações em sequência sobre uma variável. Digamos que a gente precise formatar uma string, removendo espaços em brancos e colocando tudo em letras minúsculas.
+
+**Sem Pipe Operator**:
+
+```elixir
+iex(1)> string = " aaABbbbaaaBBaA "
+" aaABbbbaaaBBaA "
+
+iex(2)> string = String.trim(string)
+"aaABbbbaaaBBaA"
+
+iex(3)> string = String.downcase(string)
+"aaabbbbaaabbaa"
+
+iex(4)> string
+"aaabbbbaaabbaa"
+```
+
+**Com Pipe Operator**:
+
+```elixir
+iex(6)> " aaABbbbaaaBBaA " |> String.trim() |> String.downcase()
+"aaabbbbaaabbaa"
+```
+
