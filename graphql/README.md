@@ -33,7 +33,7 @@ No Graphql, tudo é um **tipo**(Type) que define a maneira como os dados estão 
 
 Game Type (relacionado com plataformas(type Platform), desenvolvedores(type Developer) e categorias(type Category)):
 
-```ts
+```graphql
 type Developer {
   id: ID!
   name: String!
@@ -63,7 +63,8 @@ type Game {
 Consideremos que os types acimas estão estruturados para que um Ecommerce de games possa listar todos os seus jogos
 
 Query de jogos:
-```ts
+
+```graphql
 query getGames {
   games {
     id
@@ -95,7 +96,7 @@ Agora digamos que tenhamos uma página de listagem dos 15 primeiros jogos que es
 
 Filtro de jogos de graça:
 
-```ts
+```graphql
 query getGames($limit: Int, $where: JSON) {
   games(where: $where, limit: $limit) {
     id
@@ -120,6 +121,7 @@ query getGames($limit: Int, $where: JSON) {
   }
 }
 ```
+
 Assim podemos passar como **Query Variables** um objeto da seguinte maneira:
 
 ```json
