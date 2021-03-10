@@ -14,6 +14,7 @@
     - [Imutabilidade](#imutabilidade)
     - [Pattern Matching](#patternmatching)
     - [Pipe Operator](#pipeoperator)
+  - [Concorrência e Paralelismo](#concorrência-e-paralelismo)
   - [Phoenix](#phoenix)
 
 <!-- /TOC -->
@@ -345,3 +346,76 @@ iex(6)> " aaABbbbaaaBBaA " |> String.trim() |> String.downcase()
 "aaabbbbaaabbaa"
 ```
 
+# Concorrência e Paralelismo
+
+Dois irmãos jogando videogame. :video_game:
+
+## Concorrência
+
+Se houver somente um videogame, os irmãos terão que concorrer pelo videogame, combinando de uma hora um deles jogar e outra hora o outro.
+
+## Paralelismo
+
+Se houver dois videogames, os irmão poderão jogar ao mesmo tempo. Jogando de forma paralela.
+
+## Processos
+
+- Os desafios de um sistema web atual
+- Os processos devem ser isolados
+
+Criando um processo:
+
+```elixir
+iex(2)> pid = spawn fn -> IO.puts("I am a process") end
+I am a process
+#PID<0.112.0>
+
+iex(3)> Process.alive?(pid)
+false
+
+iex(4)> pid_iex = self()
+#PID<0.107.0>
+
+iex(5)> send pid_iex, {:ok, "Mensagem de sucesso!"}
+{:ok, "Mensagem de sucesso!"}
+
+iex(6)> receive do
+...(6)> {:ok, msg} -> msg
+...(6)> {:error, _} -> "Oops!"
+...(6)> end
+"Mensagem de sucesso!"
+
+iex(7)> send pid_iex, {:error, "Mensagem de erro"}
+{:error, "Mensagem de erro"}
+
+iex(8)> receive do
+...(8)> {:ok, msg} -> msg
+...(8)> {:error, _} -> "Oops!"
+...(8)> end
+"Oops!"
+
+iex(9)> spawn fn -> send(pid_iex, {:ok, "deu certo?"}) end
+#PID<0.126.0>
+
+iex(10)> receive do
+...(10)> {:ok, msg} -> msg
+...(10)> end
+"deu certo?"
+```
+
+## Processos na BEAM
+
+- Escalabilidade
+- Tolerância à falhas
+- Distruibção
+
+- Processo do sistema operacional vs Processo da BEAM.
+- Os processos são muito leves
+- Criados em questões de microsegundos e utiliza poucos kbytes. Processos do SO gastam alguns Megabytes.
+
+- Cada processo é uma thread com execução concorrente
+- Um scheduler por núcleo da CPU
+  - A máquina virtual roda em um único processo do sistema operacional
+  - Cada scheduler pode criar milhares de processos. O limite teórico é de 134 milhões!
+
+![Beam Process](https://res.cloudinary.com/dqcqifjms/image/upload/v1615382370/felipejung/beam_process_oypp84.jpg)
