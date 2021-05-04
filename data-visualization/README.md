@@ -1,10 +1,12 @@
-# Data Visualization
+# Data Visualization 🎲
 
 <!-- TOC -->
 
 - [Data Visualization](#data-visualization)
   - [Dashboard vs Infográficos](#dashboard-vs-infográficos)
   - [Correlação e Causalidade](#correlação-e-causalidade)
+  - [Storytelling](#storytelling)
+  - [Design](#design)
 
 <!-- /TOC -->
 
@@ -53,3 +55,59 @@ Segundo Exemplo: tempo de estudo e nota em prova. Quanto mais se estuda mais alt
 É necessário realizar um estudo específico que, efetivamente, faça uma relação entre um efeito a partir de uma causa e isso não necessariamente é sempre verdade.
 
 > Exemplos de casos de correlações sem causalidade: [Spurios Correlations](http://tylervigen.com/spurious-correlations)
+
+# Storytelling
+
+## Narrativa + Data
+
+**EXPLICAR**. O que está acontecendo com os dados e porque um insight é importante. Em geral tabelas.
+
+## Visualizar + Data
+
+**"ILUMINAR"**. Traz "a luz" sobre insights que normalmente não seriam vistos sem gráficos. Padrões e pontos fora da curva.
+
+## Visualizar + Narrativa
+
+**ENGAJAR**. "Prende" a audiência, ativa o emocional.
+
+Por que o Storytelling é importante? Porque melhora muito a capacidade de transmitir uma mensagem e, a partir disso, influenciar uma mudança.
+
+> Credibilidade. Trabalhando com visualização de dados, deve-se ter uma preocupação excepcional, excessiva com a questão da qualidade e da precisão do que se apresentar.
+
+# Design
+
+## Contexto
+
+Contexto é fundamental. Deve-se deixar claro o contexto da situação ou em que os dados estão inseridos para se visualizar melhor suas aplicações.
+
+Ele te dá uma informação do em torno do que está sendo explicado e posiciona melhor a audiência sobre o assunto. Contexto ajuda a se passar a imagem mais correta.
+
+## Data-Ink
+
+Da visualização de dados, quanto dela é, efetivamente, relacionado aos dados? Data-Ink é a parte da visualização que está relacionada aos dados, Non-Data-Ink seria o resto. **Deve-se deixar a visualização o máximo possível do que esteja relacionado com dados e evitar o Non-Data-Ink.**
+
+```
+Data-Ink Ratio = Data-Ink / Non-Data-Ink
+```
+
+## Visualização de dados 🎲 _Menos é mais._
+
+Evitar Chart Junk. Deixar os gráficos o mais simples possível com o que realmente interessa.
+
+> "Ter insights e fazer descobertas numa visualização entupida é como procurar uma agulho num palheiro."
+
+Princípio "RAG":
+
+🔴 RED - Negativo
+🟡 AMBAR - Alert
+🟢 GREEN - Positivo
+
+Precisão deve ser entregue de acordo com quem está assistindo.
+
+:warning: NÃO UTILIZAR GRÁFICOS EM 3D! Não há nenhuma justificativa para utilização de gráficos 3D.
+
+Elementos de visualização devem estar com alinhamentos corretos para melhor e mais rápido entendimento dos dados.
+
+:warning: Ter cuidados com animações.
+
+Contraste pode **entregar uma mensagem** específica, além de proporcionar **atenção num ponto específico**.
