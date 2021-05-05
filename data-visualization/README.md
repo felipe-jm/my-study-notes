@@ -7,6 +7,7 @@
   - [Correlação e Causalidade](#correlação-e-causalidade)
   - [Storytelling](#storytelling)
   - [Design](#design)
+  - [Tipos de Gráficos](#tipos-de-gráficos)
 
 <!-- /TOC -->
 
@@ -98,9 +99,9 @@ Evitar Chart Junk. Deixar os gráficos o mais simples possível com o que realme
 
 Princípio "RAG":
 
-🔴 RED - Negativo
-🟡 AMBAR - Alert
-🟢 GREEN - Positivo
+- 🔴 RED - Negativo
+- 🟡 AMBAR - Alert
+- 🟢 GREEN - Positivo
 
 Precisão deve ser entregue de acordo com quem está assistindo.
 
@@ -111,3 +112,64 @@ Elementos de visualização devem estar com alinhamentos corretos para melhor e 
 :warning: Ter cuidados com animações.
 
 Contraste pode **entregar uma mensagem** específica, além de proporcionar **atenção num ponto específico**.
+
+# Tipos de Gráficos
+
+## Gráfico de barras (seu melhor amigo)
+
+![Gráfico de barras](./images/bar.png)
+
+- Resolve seu problema em 80% dos casos.
+
+## Gráfico de linhas
+
+![Gráfico de linhas](./images/line.png)
+
+Dois cuidados:
+
+- Sempre utilizar grid para dar referência e contexto
+- Não exagerar no número de linhas
+
+## Combos
+
+![Combo](./images/combo.png)
+
+- São ótimos para mostrar mais de uma dimensão ao mesmo tempo. Funcionam bem tanto com categorias como com séries temporais.
+- Possível juntar diferentes tipos de gráficos(colunas e marcadores, colunas e linhas...).
+- Assim como gráficos de barra e de linhas, fica complicado ler mais que três dimensões.
+
+## Histograma circular - Gráficos de torta
+
+![Histograma Circular](./images/pie.png)
+
+- Deve-se saber utilizar. Melhor evitar.
+- Precisa ter poucos elementos.
+
+## Gráficos de árvore - Trees Maps
+
+![Tree Map](./images/treemap.png)
+
+- Apesar do nosso cérebro ser péssimo para comparar áreas, "tree maps" são excelentes para dar contexto.
+- Explicar: não sei quanto é a área A, mas sei que é maior que o dobro da área B
+- Poder ser usado como gráfico auxiliar.
+- User com cuidado, mas mantenha-o no seu arsenal.
+
+## Gráficos de dispersão - Scatter Plot
+
+![Tree Map](./images/scatterplot.png)
+
+- Não é comum, mas é uma ferramente poderosa se usado no lugar e na hora certa.
+- Excelent para storytellings de séries temporais (mudanças das relações XY em função do tempo).
+- [gapminder.org](gapminder.org) (sw e bases)
+- Pode-se também utilizar o tamanho do ponto como dimensão e cor
+
+## Medidores - Gauges
+
+![Gauge](./images/gauge.png)
+
+- Excelentes para kpi's - "entregam" a mensagem instantaneamente.
+- No entanto, devem ser usados como gráficos auxiliares, pois:
+  - São pouco precisos
+  - Não tem info analítica, não servem para analisar
+
+> Gráficos retirados de [Apex Charts](https://apexcharts.com/javascript-chart-demos/)
