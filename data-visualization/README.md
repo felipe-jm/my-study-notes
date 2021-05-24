@@ -8,6 +8,7 @@
   - [Storytelling](#storytelling)
   - [Design](#design)
   - [Tipos de Gráficos](#tipos-de-gráficos)
+  - [14 Mandamentos da Visualização de Dados](#14-mandamentos-da-visualização-de-dados)
 
 <!-- /TOC -->
 
@@ -173,3 +174,22 @@ Dois cuidados:
   - Não tem info analítica, não servem para analisar
 
 > Gráficos retirados de [Apex Charts](https://apexcharts.com/javascript-chart-demos/)
+
+# 14 Mandamentos da Visualização de Dados
+
+Boas práticas para a visualização de dados
+
+1. **Não use 3D**
+2. **Conheça seu público-alvo**
+3. **A necessidade do público-alvo tem que ser o foco**
+4. **Não existe dashboard bom se os dados são ruins**
+5. **Use os gráficos corretos para mostrar os KPIS(tipo de visualização) corretos**
+6. **Sente na cadeira de quem está assistindo você ou vendo seu dashboard**
+7. **Se não precisa, não use!**
+8. **Tome o maior cuidado até no menor detalhe**
+9. **Sempre dê contexto aos seus dados**
+10. **Seus dados precisam contar uma história**
+11. **Planeje utilizando princípios de design**
+12. **Elegância vem do correto balanceamento de cores e estilos, da consistência e do alinhamento**
+13. **Evite "Pie Charts", "Donuts" e eixos Y secundários**
+14. **Encontre um patrocinador e divulgue seu trabalho de dataviz**
